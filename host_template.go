@@ -1,7 +1,7 @@
 package zabbix
 
 type HostTemplate struct {
-	Templateid string `json:"templateid"`
+	TemplateId string `json:"templateid"`
 }
 
 type HostTemplates []HostTemplate
