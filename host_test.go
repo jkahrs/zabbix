@@ -1,21 +1,24 @@
 package zabbix_test
 
 import (
-	. "."
 	"fmt"
 	"math/rand"
 	"reflect"
 	"testing"
+
+	. "."
 )
 
 func CreateHost(group *HostGroup, t *testing.T) *Host {
 	name := fmt.Sprintf("%s-%d", getHost(), rand.Int())
 	iface := HostInterface{DNS: name, Port: "42", Type: Agent, UseIP: 0, Main: 1}
+	template := HostTemplate{TemplateId: "42"}
 	hosts := Hosts{{
 		Host:       name,
 		Name:       "Name for " + name,
 		GroupIds:   HostGroupIds{{group.GroupId}},
 		Interfaces: HostInterfaces{iface},
+		Templates:  HostTemplates{template},
 	}}
 
 	err := getAPI(t).HostsCreate(hosts)
