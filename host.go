@@ -29,6 +29,7 @@ type Host struct {
 	// Fields below used only when creating hosts
 	GroupIds   HostGroupIds   `json:"groups,omitempty"`
 	Interfaces HostInterfaces `json:"interfaces,omitempty"`
+	Templates  HostTemplates  `json:"templates,omitempty"`
 }
 
 type Hosts []Host
